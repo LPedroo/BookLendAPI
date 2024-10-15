@@ -3,8 +3,7 @@ const HttpError = require("../errors/HttpError");
 const uuid = require("uuid").v4;
 
 let books = [
-  { id: "1", title: "Bíblia", author: "Jesus", quantityAvailable: 10 },
-  { id: "2", title: "Harry Potter", author: "Sla", quantityAvailable: 5 },
+  { id: "1", title: "Bíblia", author: "Desconhecido", quantityAvailable: 10 },
 ];
 
 module.exports = {
@@ -28,6 +27,8 @@ module.exports = {
     if (bookIndex === -1) {
       throw new HttpError(404, "Livro não encontrado");
     }
+    // Se o livro for encontrado, ele será atualizado. Esse código usa o spread operator (...) para combinar o livro original (books[bookIndex]) com os valores do objeto updatedBook.
+    // As propriedades de updatedBook sobrescrevem as do livro original onde houver coincidências.
     books[bookIndex] = { ...books[bookIndex], ...updatedBook };
     return books[bookIndex];
   },

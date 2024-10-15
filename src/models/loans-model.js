@@ -50,8 +50,10 @@ module.exports = {
       throw new HttpError(404, "Empréstimo não encontrado!");
 
     const loan = loans[loanIndex];
-    if (loan.isReturned) return null;
 
+    // Verifica se o empréstimo já foi devolvido. Se a propriedade loan.isReturned for true, a função retorna null,
+    // indicando que o livro já havia sido devolvido e nenhuma ação adicional será realizada.
+    if (loan.isReturned) return null;
     loan.isReturned = true;
 
     const today = new Date();
