@@ -1,0 +1,1 @@
+Este projeto é uma API REST de gerenciamento de tarefas usando **Express.js**, que permite criar, visualizar, atualizar e excluir tarefas sem uso de banco de dados, com armazenamento local na aplicação.
